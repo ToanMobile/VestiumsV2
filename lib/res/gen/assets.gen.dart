@@ -19,10 +19,21 @@ class $AssetsIconsGen {
   List<AssetGenImage> get values => [logo];
 }
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/no_image.webp
+  AssetGenImage get noImage => const AssetGenImage('assets/images/no_image.webp');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [noImage];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
 class AssetGenImage {

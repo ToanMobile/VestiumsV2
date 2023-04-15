@@ -110,8 +110,8 @@ class DTextFromField extends StatelessWidget {
               prefixIconConstraints: prefixConstraints,
               prefixIcon: prefixIcon != null
                   ? Padding(
-                      child: prefixIcon,
                       padding: EdgeInsets.only(left: prefixPadding != null ? prefixPadding! : 16.ws, right: prefixPadding != null ? prefixPadding! : 16.ws),
+                      child: prefixIcon,
                     )
                   : null,
               suffixIconConstraints: iconContraints,
@@ -201,14 +201,10 @@ class _ClearTextFieldState extends State<ClearTextField> {
           ? MaterialButton(
               height: 24,
               minWidth: 24,
-              padding: EdgeInsets.all(0),
+              padding: const EdgeInsets.all(0),
               onPressed: () => controller?.clear(),
-              child: Image.asset(
-                DImages.textClear,
-                width: 16.ws,
-                height: 16.ws,
-              ),
-              shape: CircleBorder(),
+              shape: const CircleBorder(),
+              child: Icon(Icons.clear, size: 16.ws),
             )
           : null,
     );
@@ -286,13 +282,13 @@ class _CountryCodeTextFieldState extends State<CountryCodeTextField> {
       suffixIcon: MaterialButton(
         height: 30,
         minWidth: 24,
-        padding: EdgeInsets.only(right: 3),
+        padding: const EdgeInsets.only(right: 3),
         onPressed: () => {},
+        shape: const CircleBorder(),
         child: Text(
           "|",
           style: text18.textColor141414,
         ),
-        shape: CircleBorder(),
       ),
     );
   }

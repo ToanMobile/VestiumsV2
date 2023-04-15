@@ -1,21 +1,19 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 
-import '/res/style.dart';
-import '/res/theme/theme_service.dart';
-import '/ui/widgets/button/touchable_opacity.dart';
+import 'touchable_opacity.dart';
 
 class CartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TouchableOpacity(
       child: TouchableOpacity(
-        child: SvgPicture.asset(
+        child: SizedBox(),
+        /*
+        SvgPicture.asset(
           DIcons.cart,
           width: 32.ws,
           height: 32.ws,
-        ),
+        )*/
         onPressed: () async {
           //Get.toNamed(AppRoutes.MY_CART);
           // Get.toNamed(AppRoutes.OPTION_BOOKING);
@@ -27,7 +25,7 @@ class CartButton extends StatelessWidget {
           // );
           // Get.find<PlatformChannel>().openChatConversation(user);
           // Get.find<PlatformChannel>().openChatWithUser(user!, target);
-          Get.snackbar("Thông báo", "Tính năng đang được đấu nối", colorText: getColor().textColorWhite, backgroundColor: getColor().themeColorFF6F15);
+          //Get.snackbar("Thông báo", "Tính năng đang được đấu nối", colorText: getColor().textColorWhite, backgroundColor: getColor().themeColorFF6F15);
         },
       ),
     );

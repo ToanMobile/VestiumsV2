@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_base_bloc/commons/export_commons.dart';
+import 'package:vestiums/widgets/button/touchable_opacity.dart';
+
+import '../../res/style.dart';
 
 enum DialogType { INFO, SUCCESS, ERROR }
 
@@ -64,12 +66,12 @@ class AppDialog {
                       Stack(
                         children: [
                           Container(
-                            margin: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                            decoration: BoxDecoration(
+                            margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                            decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.all(Radius.circular(10)),
                             ),
-                            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                             child: Column(
                               children: [
                                 _buildTitleText,
@@ -94,11 +96,11 @@ class AppDialog {
   Widget get _buildTitleText {
     if ((title).isEmpty) return Container();
     return Container(
-      margin: EdgeInsets.only(top: 4),
+      margin: const EdgeInsets.only(top: 4),
       child: Text(
         title,
         textAlign: TextAlign.center,
-        style: AppTextStyle.blackS16Bold,
+        style: text16.bold.textBlackColor,
       ),
     );
   }
@@ -106,11 +108,11 @@ class AppDialog {
   Widget get _buildDescriptionText {
     if ((description).isEmpty) return Container();
     return Container(
-      margin: EdgeInsets.only(top: 10),
+      margin: const EdgeInsets.only(top: 10),
       child: Text(
         description,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black),
+        style: const TextStyle(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black),
       ),
     );
   }
@@ -136,34 +138,31 @@ class AppDialog {
   }
 
   Widget get _buildOkButton {
-    return FlatButton(
-      splashColor: Colors.transparent,
-      highlightColor: Colors.transparent,
+    return TouchableOpacity(
       onPressed: () {
         dismiss();
         onOkPressed?.call();
       },
       child: Text(
         okText,
-        style: AppTextStyle.tintS14,
+        style: text14.textBlackColor,
       ),
     );
   }
 
-  Widget get _buildCancelButton => FlatButton(
+  Widget get _buildCancelButton => TouchableOpacity(
         onPressed: () {
           dismiss();
           onCancelPressed?.call();
         },
         child: Text(
           cancelText,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             color: Color(0xFF005CF7),
             fontWeight: FontWeight.bold,
           ),
         ),
-        color: Colors.transparent,
       );
 
   dismiss() {

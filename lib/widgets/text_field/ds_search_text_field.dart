@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/design_system/ds_theme.dart';
-import 'package:flutter_application_1/generated/assets.gen.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:vestiums/res/style.dart';
 
 class DSSearchTextField extends StatefulWidget {
   final ValueChanged<String> onChange;
@@ -44,7 +43,7 @@ class DSSearchTextField extends StatefulWidget {
 class DSDSSearchTextFieldState extends State<DSSearchTextField> {
   FocusNode _focusNode = FocusNode();
   final TextEditingController _controller = TextEditingController();
-  late Color _borderColor = DSTheme.of(context).color.border;
+  late Color _borderColor = colorB90D18;
   bool _obscureText = false;
   final BehaviorSubject<String> _behaviorSubject = BehaviorSubject<String>();
 
@@ -72,17 +71,15 @@ class DSDSSearchTextFieldState extends State<DSSearchTextField> {
     }
     setState(() {
       if (_focusNode.hasFocus) {
-        _borderColor = DSTheme.of(context).color.systemGreen;
+        _borderColor = colorB90D18;
       } else {
-        _borderColor = DSTheme.of(context).color.border;
+        _borderColor = colorD3D3D4;
       }
     });
   }
 
-  void _setUpDebound() {
-    _behaviorSubject
-        .debounceTime(const Duration(milliseconds: 500))
-        .listen((event) {
+  void _setUpDebounce() {
+    _behaviorSubject.debounceTime(const Duration(milliseconds: 500)).listen((event) {
       widget.onChange.call(event);
     });
   }
@@ -96,7 +93,7 @@ class DSDSSearchTextFieldState extends State<DSSearchTextField> {
     if (widget.focusNode != null) {
       _focusNode = widget.focusNode!;
     }
-    _setUpDebound();
+    _setUpDebounce();
     _onFocus();
     _onTextChanged();
     _obscureText = widget.obscureText;
@@ -141,22 +138,14 @@ class DSDSSearchTextFieldState extends State<DSSearchTextField> {
                         keyboardType: widget.textInputType,
                         maxLines: widget.maxLine,
                         textInputAction: TextInputAction.done,
-                        style: DSTheme.of(context).style.tsInterT13R,
+                        style: text14.textWhiteColor,
                         obscureText: _obscureText,
                         enableSuggestions: widget.enableSuggestions,
                         autocorrect: widget.autocorrect,
                         textAlignVertical: TextAlignVertical.center,
-                        cursorColor: DSTheme.of(context).color.systemGreen,
+                        cursorColor: color0EAC71,
                         decoration: InputDecoration(
-                            isCollapsed: true,
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.zero,
-                            hintText: widget.hintText,
-                            hintStyle: DSTheme.of(context)
-                                .style
-                                .tsInterT13R
-                                .copyWith(
-                                    color: DSTheme.of(context).color.grey200)),
+                            isCollapsed: true, border: InputBorder.none, contentPadding: EdgeInsets.zero, hintText: widget.hintText, hintStyle: text14.textColor929394),
                       ),
                     ),
                     const SizedBox(width: 4),
@@ -187,11 +176,7 @@ class _SearchIcon extends StatelessWidget {
         child: Align(
           alignment: Alignment.center,
           child: Center(
-            child: Image.asset(
-              Assets.images.icSearch.keyName,
-              color: DSTheme.of(context).color.grey200,
-              fit: BoxFit.fill,
-            ),
+            child: Icon(Icons.search, size: 16.ws),
           ),
         ),
       );
@@ -216,11 +201,7 @@ class _IconClear extends StatelessWidget {
           child: Align(
             alignment: Alignment.center,
             child: Center(
-              child: Image.asset(
-                Assets.images.icCloseCircle.keyName,
-                color: DSTheme.of(context).color.grey200,
-                fit: BoxFit.fill,
-              ),
+              child: Icon(Icons.close, size: 16.ws),
             ),
           ),
         ),

@@ -81,11 +81,7 @@ class _TextInputLineBorderState extends State<TextInputLineBorder> {
             ),
             if ((isClearText.value && widget.maxLine == 1 || widget.textEditingController.text.isNotEmpty) && widget.enabled!)
               InkWell(
-                child: Image.asset(
-                  DImages.textClear,
-                  width: 16.ws,
-                  height: 16.ws,
-                ),
+                child: Icon(Icons.clear, size: 16.ws),
                 onTap: () {
                   widget.textEditingController.text = "";
                   if (widget.onTextChanged != null) widget.onTextChanged!("");
@@ -93,11 +89,7 @@ class _TextInputLineBorderState extends State<TextInputLineBorder> {
                 },
               ),
             if (!widget.enabled!)
-              Image.asset(
-                DImages.lock,
-                width: 14.ws,
-                height: 14.ws,
-              )
+              Icon(Icons.lock, size: 16.ws),
           ],
         ));
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '/res/style.dart';
-import '/ui/widgets/button/touchable_opacity.dart';
+import '../button/touchable_opacity.dart';
 
 class TextInputSearch extends StatelessWidget {
   final Color? background;
@@ -38,11 +38,7 @@ class TextInputSearch extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Image.asset(
-            DImages.searchGray,
-            width: 16.ws,
-            height: 16.ws,
-          ),
+          Icon(Icons.search, size: 16.ws),
           SizedBox(
             width: 5.ws,
           ),
@@ -52,22 +48,18 @@ class TextInputSearch extends StatelessWidget {
               child: TextField(
                 style: textStyle,
                 controller: controller,
-                scrollPadding: EdgeInsets.all(0),
+                scrollPadding: const EdgeInsets.all(0),
                 enableInteractiveSelection: isInput,
                 enabled: isInput,
-                decoration: new InputDecoration(hintText: hint, hintStyle: hintStyle, border: InputBorder.none),
+                decoration: InputDecoration(hintText: hint, hintStyle: hintStyle, border: InputBorder.none),
               ),
             ),
             onPressed: () {
               if (onPressed != null) onPressed!();
             },
           ),
-          Spacer(),
-          Image.asset(
-            DImages.textClear,
-            width: 16.ws,
-            height: 16.ws,
-          ),
+          const Spacer(),
+          Icon(Icons.clear, size: 16.ws),
         ],
       ),
     );
