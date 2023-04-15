@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main_develop.dart
+ASSET_PREFIX=develop
+BUNDLE_NAME=Vestiums Dev
+BUNDLE_DISPLAY_NAME=Vestiums Dev

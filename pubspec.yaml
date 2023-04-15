@@ -1,0 +1,66 @@
+name: vestiums
+description: A new Flutter project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0-9.0.dev <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  flutter_bloc: ^8.1.2
+  equatable: ^2.0.5
+  dio: ^5.1.1
+  cached_network_image: ^3.2.3
+  permission_handler: ^10.2.0
+  get_storage: ^2.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  flutter_flavorizr: ^2.1.6
+  build_runner: ^2.3.3
+  flutter_gen_runner: ^5.2.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+    - assets/images/
+
+flutter_gen:
+  output: lib/res/gen/ # Optional (default: lib/gen/)
+  line_length: 180 # Optional (default: 80)
+
+  # Optional
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
+    lottie: false
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+
+  flavors:
+    develop:
+      app:
+        name: "Vestiums Dev"
+      android:
+        applicationId: "com.vestiums.fashion.app.dev"
+      ios:
+        bundleId: "com.vestiums.fashion.app.dev"
+
+    production:
+      app:
+        name: "Vestiums"
+      android:
+        applicationId: "com.vestiums.fashion.app"
+      ios:
+        bundleId: "com.vestiums.fashion.app"
